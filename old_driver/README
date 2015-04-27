@@ -1,0 +1,52 @@
+This is a simple Unix based decoder for the WGL Designs W800RF32.
+http://www.wgldesigns.com/w800.html
+
+I love this receiver.  It is lightning fast and has no configuration
+to mess with.  Plug it in, decode the data stream and it just works.
+As a bonus, it is really simple to decode.
+
+This code is sort-of based on the protocol doc on the WGL page.  Except
+that I've used the order of the characters that the device uploads
+directly.  This means that all the bits are reversed and the two
+half-words are reversed compared to the docs.  Oh well, too bad! :-)
+
+I wrote this for FreeBSD.  It seems to compile on Linux, but I have not
+tried running it.  Please let me know if it works, or what needs fixing if
+not.
+
+I have the program configured to run a shell script for each and
+every received X10 signal.  I've included the files in the examples/
+subdirectory.  They are not likely to be useful to you but may give
+you some ideas.
+
+Defaults for command args:
+-t:	timelimit = 2 seconds
+-d:	device = /dev/ttyd5
+-l:	logfile = /usr/local/x10/w800rf32.log
+-p:	pidfile = /var/run/w800rf32.pid
+-c:	cmd = /usr/local/x10/x10rf.sh
+
+The time limit requires explanation.  When I use an X10 4 button 'credit
+card' keychain remote, pressing a button causes a 1.5 second burst of
+repeat traffic.  My hack is to ignore the repeats within the window.  If a
+different code arrives, it will still be responded to.  If you only have
+quick bursts on your transmitters, you can always reduce the time limit
+to 1 second.  Or increase it if you have lots more X10 RF repeaters than
+I have.
+
+The command is run with two args, eg:
+"/usr/local/x10/x10rf.sh B5 ON"
+You can then do whatever you wish.  I have a couple of lines cut from my
+machine as an example.
+
+I have a text file that maps X10 -> Insteon for ON/OFF commands.
+The shell script also maps a couple of X10 commands as triggers for things
+like UPB devices and one of my 2-step vertical blind automated openers.
+They send Insteon and UPB commands using other software I have written but
+have not yet polished up for release.  Sorry.  Soon, I promise!
+
+Anyway, have fun!
+
+Peter
+-a-t-
+wemm.org

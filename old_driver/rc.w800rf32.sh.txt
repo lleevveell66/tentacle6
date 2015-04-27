@@ -1,0 +1,19 @@
+#!/bin/sh
+# $FreeBSD: ports/net/mDNSResponder/files/mdnsd.sh.in,v 1.3 2005/03/26 07:59:14 krion Exp $
+
+# PROVIDE: w800rf32
+# REQUIRE: DAEMON
+# KEYWORD: FreeBSD shutdown
+
+w800rf32_enable="NO"
+
+. /etc/rc.subr
+
+name=w800rf32
+rcvar=`set_rcvar`
+command="/usr/local/sbin/${name}"
+pidfile="/var/run/${name}.pid"
+
+load_rc_config $name
+
+run_rc_command $*

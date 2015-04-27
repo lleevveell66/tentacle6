@@ -1,0 +1,401 @@
+04/26/15 01:37:59  A01 (Kitchen) ON 
+04/26/15 01:38:22  SA9 (SA9) CLOSE 
+04/26/15 01:38:32  S5B (Master Bedroom) CLOSE 
+04/26/15 01:38:34  S5B (Master Bedroom) CLOSE 
+04/26/15 01:38:41  SA9 (SA9) CLOSE 
+04/26/15 01:38:44  SA9 (SA9) CLOSE 
+04/26/15 01:38:52  S1F (Front Door) CLOSE 
+04/26/15 01:38:55  A01 (Kitchen) ON 
+04/26/15 01:40:07  A01 (Kitchen) OFF 
+04/26/15 01:44:03 SA9 (Hallway Door) CLOSE 
+04/26/15 01:44:06 SA9 (Hallway Door) CLOSE 
+04/26/15 01:44:13 S5B (Master Bedroom Door) CLOSE 
+04/26/15 01:44:20 SA9 (Hallway Door) CLOSE 
+04/26/15 01:44:24 SA9 (Hallway Door) CLOSE 
+04/26/15 01:45:37 A01 (Kitchen Sensor) ON 
+04/26/15 01:45:37 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 01:45:47 SA9 (Hallway Door) CLOSE 
+04/26/15 01:45:50 SA9 (Hallway Door) CLOSE 
+04/26/15 01:45:58 S5B (Master Bedroom Door) CLOSE 
+04/26/15 01:46:01 S5B (Master Bedroom Door) CLOSE 
+04/26/15 01:46:10 SA9 (Hallway Door) CLOSE 
+04/26/15 01:46:13 SA9 (Hallway Door) CLOSE 
+04/26/15 01:46:48 A01 (Kitchen Sensor) OFF 
+04/26/15 01:46:48 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:04:05 A01 (Kitchen Sensor) ON 
+04/26/15 02:04:05 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:05:03 S3F (Back Door) CLOSE 
+04/26/15 02:05:08 S3F (Back Door) CLOSE 
+04/26/15 02:05:16 A01 (Kitchen Sensor) OFF 
+04/26/15 02:05:16 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:05:26 S3F (Back Door) CLOSE 
+04/26/15 02:05:30 S3F (Back Door) CLOSE 
+04/26/15 02:05:45 S3F (Back Door) CLOSE 
+04/26/15 02:05:48 S3F (Back Door) CLOSE 
+04/26/15 02:05:59 S3F (Back Door) CLOSE 
+04/26/15 02:06:04 S3F (Back Door) CLOSE 
+04/26/15 02:06:53 S3F (Back Door) CLOSE 
+04/26/15 02:06:57 S3F (Back Door) CLOSE 
+04/26/15 02:09:39 S3F (Back Door) CLOSE 
+04/26/15 02:09:43 S3F (Back Door) CLOSE 
+04/26/15 02:09:47 S3F (Back Door) CLOSE 
+04/26/15 02:09:52 S3F (Back Door) CLOSE 
+04/26/15 02:15:22 S3F (Back Door) CLOSE 
+04/26/15 02:15:25 S3F (Back Door) CLOSE 
+04/26/15 02:16:04 A01 (Kitchen Sensor) ON 
+04/26/15 02:16:04 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:17:15 A01 (Kitchen Sensor) OFF 
+04/26/15 02:17:15 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:17:42 A02 (A02) ON 
+04/26/15 02:17:50 A01 (Kitchen Sensor) ON 
+04/26/15 02:17:50 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:17:52 A01 (Kitchen Sensor) OFF 
+04/26/15 02:17:52 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:18:11 A01 (Kitchen Sensor) ON 
+04/26/15 02:18:11 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:18:23 A02 (A02) ON 
+04/26/15 02:24:20 A01 (Kitchen Sensor) ON 
+04/26/15 02:24:20 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:24:50 A01 (Kitchen Sensor) OFF 
+04/26/15 02:24:50 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:25:05 A03 (A03) ON 
+04/26/15 02:25:22 A01 (Kitchen Sensor) ON 
+04/26/15 02:25:22 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:25:29 A01 (Kitchen Sensor) OFF 
+04/26/15 02:25:29 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:25:36 A01 (Kitchen Sensor) ON 
+04/26/15 02:25:36 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:25:44 A01 (Kitchen Sensor) OFF 
+04/26/15 02:25:44 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:25:59 A05 (A05) ON 
+04/26/15 02:26:02 A03 (A03) ON 
+04/26/15 02:27:03 SF3 (SF3) CLOSE 
+04/26/15 02:27:49 A01 (Kitchen Sensor) ON 
+04/26/15 02:27:49 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:30:52 S1F (Front Door) CLOSE 
+04/26/15 02:30:56 S1F (Front Door) CLOSE 
+04/26/15 02:31:50 S1F (Front Door) CLOSE 
+04/26/15 02:31:54 S1F (Front Door) CLOSE 
+04/26/15 02:34:56 SA9 (Hallway Door) CLOSE 
+04/26/15 02:35:01 A01 (Kitchen Sensor) OFF 
+04/26/15 02:35:01 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:35:45 A02 (A02) ON 
+04/26/15 02:36:18 A05 (A05) ON 
+04/26/15 02:36:25 A05 (A05) ON 
+04/26/15 02:36:54 A02 (A02) ON 
+04/26/15 02:37:07 A02 (A02) OFF 
+04/26/15 02:37:20 S5B (Master Bedroom Door) CLOSE 
+04/26/15 02:37:24 A01 (Kitchen Sensor) ON 
+04/26/15 02:37:24 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:37:32 A01 (Kitchen Sensor) ON 
+04/26/15 02:37:32 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:37:39 A01 (Kitchen Sensor) ON 
+04/26/15 02:37:39 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:37:45 A01 (Kitchen Sensor) ON 
+04/26/15 02:37:45 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:37:52 A01 (Kitchen Sensor) ON 
+04/26/15 02:37:52 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:37:59 A01 (Kitchen Sensor) ON 
+04/26/15 02:37:59 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:05 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:05 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:12 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:12 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:18 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:18 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:24 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:24 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:30 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:30 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:36 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:36 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:42 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:42 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:38:56 A01 (Kitchen Sensor) ON 
+04/26/15 02:38:56 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:39:06 A01 (Kitchen Sensor) ON 
+04/26/15 02:39:06 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:39:14 A01 (Kitchen Sensor) ON 
+04/26/15 02:39:14 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:39:14 X609f01ff (X609f01ff)  
+04/26/15 02:42:48 A02 (A02) ON 
+04/26/15 02:42:49 A01 (Kitchen Sensor) OFF 
+04/26/15 02:42:49 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:43:46 A03 (A03) ON 
+04/26/15 02:43:53 A03 (A03) ON 
+04/26/15 02:44:49 A03 (Kitchen Sensor 2) OFF 
+04/26/15 02:48:04 A03 (Kitchen Sensor 2) ON 
+04/26/15 02:48:04 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:48:11 A03 (Kitchen Sensor 2) ON 
+04/26/15 02:48:11 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:48:14 A01 (Kitchen Sensor 1) ON 
+04/26/15 02:48:14 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:48:52 A01 (Kitchen Sensor 1) ON 
+04/26/15 02:48:52 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:49:02 A02 (Library Sesnor 1) ON 
+04/26/15 02:49:02 [BERTHA Tentacle 6] Activity detected in library.  Turning library light to ON.
+04/26/15 02:49:07 A03 (Kitchen Sensor 2) OFF 
+04/26/15 02:49:07 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:49:13 A02 (Library Sesnor 1) ON 
+04/26/15 02:49:13 [BERTHA Tentacle 6] Activity detected in library.  Turning library light to ON.
+04/26/15 02:49:15 A03 (Kitchen Sensor 2) ON 
+04/26/15 02:49:15 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 02:50:03 A01 (Kitchen Sensor 1) OFF 
+04/26/15 02:50:03 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:50:11 A03 (Kitchen Sensor 2) OFF 
+04/26/15 02:50:11 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 02:50:33 A02 (Library Sesnor 1) OFF 
+04/26/15 02:50:33 [BERTHA Tentacle 6] Activity timed-out in library.  Turning library light to OFF.
+04/26/15 03:08:07 S3F (Back Door) CLOSE 
+04/26/15 03:23:44 SA9 (Hallway Door) CLOSE 
+04/26/15 03:24:46 SF3 (SF3) CLOSE 
+04/26/15 03:28:44 S5B (Master Bedroom Door) CLOSE 
+04/26/15 03:30:20 S1F (Front Door) CLOSE 
+04/26/15 04:00:59 S3F (Back Door) CLOSE 
+04/26/15 04:12:35 SA9 (Hallway Door) CLOSE 
+04/26/15 04:18:00 A03 (Kitchen Sensor 2) ON 
+04/26/15 04:18:00 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 04:18:07 A03 (Kitchen Sensor 2) ON 
+04/26/15 04:18:07 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 04:19:03 A03 (Kitchen Sensor 2) OFF 
+04/26/15 04:19:03 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 04:19:59 A03 (Kitchen Sensor 2) ON 
+04/26/15 04:19:59 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 04:20:13 S5B (Master Bedroom Door) CLOSE 
+04/26/15 04:20:54 A03 (Kitchen Sensor 2) OFF 
+04/26/15 04:20:54 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 04:22:30 SF3 (SF3) CLOSE 
+04/26/15 04:28:51 S1F (Front Door) CLOSE 
+04/26/15 04:53:59 S3F (Back Door) CLOSE 
+04/26/15 05:01:30 SA9 (Hallway Door) CLOSE 
+04/26/15 05:10:19 A02 (Library Sesnor 1) OFF 
+04/26/15 05:10:19 [BERTHA Tentacle 6] Activity timed-out in library.  Turning library light to OFF.
+04/26/15 05:10:33 A01 (Kitchen Sensor 1) ON 
+04/26/15 05:10:33 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 05:11:44 A01 (Kitchen Sensor 1) OFF 
+04/26/15 05:11:44 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 05:11:48 S5B (Master Bedroom Door) CLOSE 
+04/26/15 05:11:55 A02 (Library Sesnor 1) ON 
+04/26/15 05:11:55 [BERTHA Tentacle 6] Activity detected in library.  Turning library light to ON.
+04/26/15 05:20:16 SF3 (SF3) CLOSE 
+04/26/15 05:27:27 S1F (Front Door) CLOSE 
+04/26/15 05:34:57 A03 (Kitchen Sensor 2) ON 
+04/26/15 05:34:57 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 05:35:05 A03 (Kitchen Sensor 2) ON 
+04/26/15 05:35:05 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 05:36:00 A03 (Kitchen Sensor 2) OFF 
+04/26/15 05:36:00 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 05:47:05 S3F (Back Door) CLOSE 
+04/26/15 05:50:29 SA9 (Hallway Door) CLOSE 
+04/26/15 06:03:27 S5B (Master Bedroom Door) CLOSE 
+04/26/15 06:18:03 SF3 (SF3) CLOSE 
+04/26/15 06:26:05 S1F (Front Door) CLOSE 
+04/26/15 06:39:31 SA9 (Hallway Door) CLOSE 
+04/26/15 06:40:14 S3F (Back Door) CLOSE 
+04/26/15 06:55:10 S5B (Master Bedroom Door) CLOSE 
+04/26/15 07:08:17 A03 (Kitchen Sensor 2) ON 
+04/26/15 07:08:17 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 07:08:19 A01 (Kitchen Sensor 1) ON 
+04/26/15 07:08:19 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 07:08:24 A03 (Kitchen Sensor 2) ON 
+04/26/15 07:08:24 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 07:08:42 A03 (Kitchen Sensor 2) ON 
+04/26/15 07:08:42 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 07:08:56 SA9 (Hallway Door) CLOSE 
+04/26/15 07:09:00 SA9 (Hallway Door) CLOSE 
+04/26/15 07:09:11 S5B (Master Bedroom Door) CLOSE 
+04/26/15 07:09:30 A01 (Kitchen Sensor 1) OFF 
+04/26/15 07:09:30 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 07:09:37 A03 (Kitchen Sensor 2) OFF 
+04/26/15 07:09:37 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 07:15:50 SF3 (SF3) CLOSE 
+04/26/15 07:24:45 S1F (Front Door) CLOSE 
+04/26/15 07:33:27 S3F (Back Door) CLOSE 
+04/26/15 07:58:07 SA9 (Hallway Door) CLOSE 
+04/26/15 08:00:58 S5B (Master Bedroom Door) CLOSE 
+04/26/15 08:13:38 SF3 (SF3) CLOSE 
+04/26/15 08:23:27 S1F (Front Door) CLOSE 
+04/26/15 08:26:39 S3F (Back Door) CLOSE 
+04/26/15 08:47:14 SA9 (Hallway Door) CLOSE 
+04/26/15 08:52:44 S5B (Master Bedroom Door) CLOSE 
+04/26/15 09:11:24 SF3 (SF3) CLOSE 
+04/26/15 09:19:37 S3F (Back Door) CLOSE 
+04/26/15 09:22:06 S1F (Front Door) CLOSE 
+04/26/15 09:36:22 SA9 (Hallway Door) CLOSE 
+04/26/15 09:44:25 S5B (Master Bedroom Door) CLOSE 
+04/26/15 10:09:08 SF3 (SF3) CLOSE 
+04/26/15 10:12:04 S3F (Back Door) CLOSE 
+04/26/15 10:20:39 S1F (Front Door) CLOSE 
+04/26/15 10:25:28 SA9 (Hallway Door) CLOSE 
+04/26/15 10:35:57 S5B (Master Bedroom Door) CLOSE 
+04/26/15 11:03:50 S3F (Back Door) CLOSE 
+04/26/15 11:06:51 SF3 (SF3) CLOSE 
+04/26/15 11:14:28 SA9 (Hallway Door) CLOSE 
+04/26/15 11:19:03 S1F (Front Door) CLOSE 
+04/26/15 11:27:16 S5B (Master Bedroom Door) CLOSE 
+04/26/15 11:54:56 S3F (Back Door) CLOSE 
+04/26/15 12:03:17 SA9 (Hallway Door) CLOSE 
+04/26/15 12:04:31 SF3 (SF3) CLOSE 
+04/26/15 12:17:17 S1F (Front Door) CLOSE 
+04/26/15 12:18:23 S5B (Master Bedroom Door) CLOSE 
+04/26/15 12:45:24 S3F (Back Door) CLOSE 
+04/26/15 12:51:55 SA9 (Hallway Door) CLOSE 
+04/26/15 13:02:09 SF3 (SF3) CLOSE 
+04/26/15 13:09:17 S5B (Master Bedroom Door) CLOSE 
+04/26/15 13:15:22 S1F (Front Door) CLOSE 
+04/26/15 13:35:26 S3F (Back Door) CLOSE 
+04/26/15 13:40:20 SA9 (Hallway Door) CLOSE 
+04/26/15 13:59:46 SF3 (SF3) CLOSE 
+04/26/15 14:00:05 S5B (Master Bedroom Door) CLOSE 
+04/26/15 14:13:21 S1F (Front Door) CLOSE 
+04/26/15 14:25:14 S3F (Back Door) CLOSE 
+04/26/15 14:28:38 SA9 (Hallway Door) CLOSE 
+04/26/15 14:46:49 S5B (Master Bedroom Door) CLOSE 
+04/26/15 14:47:10 SA9 (Hallway Door) CLOSE 
+04/26/15 14:47:15 SA9 (Hallway Door) CLOSE 
+04/26/15 14:47:59 A03 (Kitchen Sensor 2) ON 
+04/26/15 14:47:59 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 14:48:05 A03 (Kitchen Sensor 2) ON 
+04/26/15 14:48:05 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 14:49:01 A03 (Kitchen Sensor 2) OFF 
+04/26/15 14:49:01 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 14:57:19 SF3 (SF3) CLOSE 
+04/26/15 15:11:14 S1F (Front Door) CLOSE 
+04/26/15 15:14:48 S3F (Back Door) CLOSE 
+04/26/15 15:35:26 SA9 (Hallway Door) CLOSE 
+04/26/15 15:37:12 A03 (Kitchen Sensor 2) ON 
+04/26/15 15:37:12 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 15:37:24 S5B (Master Bedroom Door) CLOSE 
+04/26/15 15:38:14 A03 (Kitchen Sensor 2) OFF 
+04/26/15 15:38:14 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 15:47:46 A03 (Kitchen Sensor 2) ON 
+04/26/15 15:47:46 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 15:48:06 A03 (Kitchen Sensor 2) ON 
+04/26/15 15:48:06 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 15:48:12 A03 (Kitchen Sensor 2) ON 
+04/26/15 15:48:12 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 15:48:41 A02 (Library Sesnor 1) OFF 
+04/26/15 15:48:41 [BERTHA Tentacle 6] Activity timed-out in library.  Turning library light to OFF.
+04/26/15 15:48:58 A02 (Library Sesnor 1) ON 
+04/26/15 15:48:58 [BERTHA Tentacle 6] Activity detected in library.  Turning library light to ON.
+04/26/15 15:49:01 A03 (Kitchen Sensor 2) ON 
+04/26/15 15:49:01 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 15:49:07 A03 (Kitchen Sensor 2) ON 
+04/26/15 15:49:07 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 15:50:02 A03 (Kitchen Sensor 2) OFF 
+04/26/15 15:50:02 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 15:54:52 SF3 (SF3) CLOSE 
+04/26/15 16:04:12 S3F (Back Door) CLOSE 
+04/26/15 16:09:04 S1F (Front Door) CLOSE 
+04/26/15 16:22:24 A03 (Kitchen Sensor 2) ON 
+04/26/15 16:22:24 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 16:22:26 A01 (Kitchen Sensor 1) ON 
+04/26/15 16:22:26 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 16:22:30 A03 (Kitchen Sensor 2) ON 
+04/26/15 16:22:30 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 16:23:26 A03 (Kitchen Sensor 2) OFF 
+04/26/15 16:23:26 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 16:23:33 SA9 (Hallway Door) CLOSE 
+04/26/15 16:23:38 A01 (Kitchen Sensor 1) OFF 
+04/26/15 16:23:38 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 16:27:55 S5B (Master Bedroom Door) CLOSE 
+04/26/15 16:52:26 SF3 (SF3) CLOSE 
+04/26/15 16:53:41 A03 (Kitchen Sensor 2) ON 
+04/26/15 16:53:41 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 16:53:42 S3F (Back Door) CLOSE 
+04/26/15 16:53:43 A01 (Kitchen Sensor 1) ON 
+04/26/15 16:53:43 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 16:54:36 A03 (Kitchen Sensor 2) OFF 
+04/26/15 16:54:36 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 16:54:54 A01 (Kitchen Sensor 1) OFF 
+04/26/15 16:54:54 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 17:06:54 S1F (Front Door) CLOSE 
+04/26/15 17:11:40 SA9 (Hallway Door) CLOSE 
+04/26/15 17:18:26 S5B (Master Bedroom Door) CLOSE 
+04/26/15 17:43:25 S3F (Back Door) CLOSE 
+04/26/15 17:48:42 SD9 (SD9) CLOSE 
+04/26/15 17:49:12 SD9 (SD9) CLOSE 
+04/26/15 17:49:46 Xfbd9d604 (Xfbd9d604)  
+04/26/15 17:51:57 SD9 (SD9) CLOSE 
+04/26/15 17:59:48 SA9 (Hallway Door) CLOSE 
+04/26/15 18:04:45 S1F (Front Door) CLOSE 
+04/26/15 18:08:59 S5B (Master Bedroom Door) CLOSE 
+04/26/15 18:09:20 SD9 (SD9) CLOSE 
+04/26/15 18:09:21 Xd604fbd9 (Xd604fbd9)  
+04/26/15 18:11:27 SD9 (SD9) CLOSE 
+04/26/15 18:11:31 SD9 (SD9) CLOSE 
+04/26/15 18:11:33 Xfbd9d604 (Xfbd9d604)  
+04/26/15 18:23:40 A03 (Kitchen Sensor 2) ON 
+04/26/15 18:23:40 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 18:23:42 A01 (Kitchen Sensor 1) ON 
+04/26/15 18:23:42 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 18:23:47 A03 (Kitchen Sensor 2) ON 
+04/26/15 18:23:47 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 18:23:52 SA9 (Hallway Door) CLOSE 
+04/26/15 18:23:54 SA9 (Hallway Door) CLOSE 
+04/26/15 18:24:16 SA9 (Hallway Door) CLOSE 
+04/26/15 18:24:20 SA9 (Hallway Door) CLOSE 
+04/26/15 18:24:38 A03 (Kitchen Sensor 2) ON 
+04/26/15 18:24:38 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 18:24:39 A01 (Kitchen Sensor 1) ON 
+04/26/15 18:24:39 [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.
+04/26/15 18:25:33 A03 (Kitchen Sensor 2) OFF 
+04/26/15 18:25:33 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 18:25:51 A01 (Kitchen Sensor 1) OFF 
+04/26/15 18:25:51 [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.
+04/26/15 18:33:23 S3F (Back Door) CLOSE 
+04/26/15 18:46:25 X86fee660 (X86fee660)  
+04/26/15 18:46:26 X9efed9d6 (X9efed9d6)  
+04/26/15 18:46:26 X847bd9d6 (X847bd9d6)  
+04/26/15 18:46:27 X04fbd9d6 (X04fbd9d6)  
+04/26/15 18:46:30 SD9 (SD9) CLOSE 
+04/26/15 18:46:33 X86fee660 (X86fee660)  
+04/26/15 18:46:34 X9efed9d6 (X9efed9d6)  
+04/26/15 18:46:34 X847bd9d6 (X847bd9d6)  
+04/26/15 18:46:35 X04fbd9d6 (X04fbd9d6)  
+04/26/15 18:47:28 SD9 (SD9) CLOSE 
+04/26/15 18:47:29 X86fee660 (X86fee660)  
+04/26/15 18:47:38 X86f3fc05 (X86f3fc05)  
+04/26/15 18:47:39 Xfaf3fc05 (Xfaf3fc05)  
+04/26/15 18:52:51 SD9 (SD9) CLOSE 
+04/26/15 18:52:52 X86fee660 (X86fee660)  
+04/26/15 18:52:52 X9ed9d604 (X9ed9d604)  
+04/26/15 18:53:00 SD9 (SD9) CLOSE 
+04/26/15 18:53:01 X86fee660 (X86fee660)  
+04/26/15 18:53:02 X9efefee6 (X9efefee6)  
+04/26/15 18:53:02 X609efed9 (X609efed9)  
+04/26/15 18:53:02 Xd6847bd9 (Xd6847bd9)  
+04/26/15 18:53:03 Xd604fbd9 (Xd604fbd9)  
+04/26/15 18:55:58 SD9 (SD9) CLOSE 
+04/26/15 18:55:58 X86fee660 (X86fee660)  
+04/26/15 18:55:59 X9efe86fe (X9efe86fe)  
+04/26/15 18:55:59 X86fee660 (X86fee660)  
+04/26/15 18:55:59 X9e86fee6 (X9e86fee6)  
+04/26/15 18:56:00 X86fee660 (X86fee660)  
+04/26/15 18:56:00 X9e86fee6 (X9e86fee6)  
+04/26/15 18:56:03 X9e86fee6 (X9e86fee6)  
+04/26/15 18:56:03 X86fee660 (X86fee660)  
+04/26/15 18:56:03 X9efe86fe (X9efe86fe)  
+04/26/15 18:56:03 X86fee660 (X86fee660)  
+04/26/15 18:56:10 X9efee660 (X9efee660)  
+04/26/15 18:56:17 X9efee660 (X9efee660)  
+04/26/15 18:56:23 X9efee660 (X9efee660)  
+04/26/15 18:56:27 X9efe86fe (X9efe86fe)  
+04/26/15 18:56:27 X86fee660 (X86fee660)  
+04/26/15 18:56:28 X9efe86fe (X9efe86fe)  
+04/26/15 18:56:28 X86fee660 (X86fee660)  
+04/26/15 18:56:29 X9e86fee6 (X9e86fee6)  
+04/26/15 18:56:29 X86fee660 (X86fee660)  
+04/26/15 18:56:30 X9e86fee6 (X9e86fee6)  
+04/26/15 18:56:31 X86fee660 (X86fee660)  
+04/26/15 18:56:34 X9e86fee6 (X9e86fee6)  
+04/26/15 18:56:35 X86fee660 (X86fee660)  
+04/26/15 18:56:35 X9e86fee6 (X9e86fee6)  
+04/26/15 18:56:35 X86fee660 (X86fee660)  
+04/26/15 18:56:41 X86fee660 (X86fee660)  
+04/26/15 18:56:48 X86fee660 (X86fee660)  
+04/26/15 18:56:54 X86fee660 (X86fee660)  
+04/26/15 18:57:01 X86fee660 (X86fee660)  
+04/26/15 18:57:07 X86fee660 (X86fee660)  
+04/26/15 19:00:21 SD9 (SD9) CLOSE 
+04/26/15 19:02:36 S1F (Front Door) CLOSE 

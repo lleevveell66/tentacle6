@@ -1,0 +1,76 @@
+#!/usr/bin/perl
+
+# get script name
+$scriptname=$0;
+
+$device=$ARGV[0];
+$status=$ARGV[1];
+for($a=2;$a<=$#ARGV;$a++) { $other.=' '.$ARGV[$a]; }
+
+$other.="\n";
+
+# print "DEVICE CODE: $device   STATUS: $status   UNKNOWN: $other\n";
+
+$DATESTAMP=`date '+%D %T'`;chop($DATESTAMP);
+$name=`./bertha_whichDevice $device`;
+chop($name);
+
+open(LOG,">>bertha_t6.log") || die "bertha_t6.log: $!\n\n";
+
+print LOG "$DATESTAMP $device ($name) $status $other";
+print "$DATESTAMP $device ($name) $status $other";
+
+`curl --silent 'http://192.168.44.7/lie-monitor/RemoteAlert.cgi?id=106&name=Tentacle%206&msg=X10%20Alert:$device%20$status%20$other'`;
+
+if($device=~/A01/)
+{
+ if($status=~/ON/)
+ {
+  print LOG "$DATESTAMP [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.\n";
+  print "$DATESTAMP [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.\n";
+  `/usr/local/src/raymond/waiter/waiter/HyperHue-0.0.0/HueLightOn.py -l 2 -i 254`;
+ }
+ if($status=~/OFF/)
+ {
+  print LOG "$DATESTAMP [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.\n";
+  print "$DATESTAMP [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.\n";
+  `/usr/local/src/raymond/waiter/waiter/HyperHue-0.0.0/HueLightOff.py -l 2`;
+ }
+} 
+
+if($device=~/A02/)
+{
+ if($status=~/ON/)
+ {
+  print LOG "$DATESTAMP [BERTHA Tentacle 6] Activity detected in library.  Turning library light to ON.\n";
+  print "$DATESTAMP [BERTHA Tentacle 6] Activity detected in library.  Turning library light to ON.\n";
+  `/usr/local/src/raymond/waiter/waiter/HyperHue-0.0.0/HueLightOn.py -l 5 -i 254`;
+ }
+ if($status=~/OFF/)
+ {
+  print LOG "$DATESTAMP [BERTHA Tentacle 6] Activity timed-out in library.  Turning library light to OFF.\n";
+  print "$DATESTAMP [BERTHA Tentacle 6] Activity timed-out in library.  Turning library light to OFF.\n";
+  `/usr/local/src/raymond/waiter/waiter/HyperHue-0.0.0/HueLightOff.py -l 5`;
+ }
+} 
+
+if($device=~/A03/)
+{
+ if($status=~/ON/)
+ {
+  print LOG "$DATESTAMP [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.\n";
+  print "$DATESTAMP [BERTHA Tentacle 6] Activity detected in kitchen.  Turning kitchen sink light to ON.\n";
+  `/usr/local/src/raymond/waiter/waiter/HyperHue-0.0.0/HueLightOn.py -l 2 -i 254`;
+ }
+ if($status=~/OFF/)
+ {
+  print LOG "$DATESTAMP [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.\n";
+  print "$DATESTAMP [BERTHA Tentacle 6] Activity timed-out in kitchen.  Turning kitchen sink light to OFF.\n";
+  `/usr/local/src/raymond/waiter/waiter/HyperHue-0.0.0/HueLightOff.py -l 2`;
+ }
+} 
+
+close(LOG);
+
+
+exit(0);

@@ -1,0 +1,221 @@
+#!/usr/bin/perl
+
+# http://www.wgldesigns.com/protocols/w800rf32_protocol.txt
+# http://www.smarthus.info/support/download/x10_RF_formats.pdf
+
+use IO::Handle;
+use Device::SerialPort qw( :PARAM :STAT 0.07 );
+
+# The com port set up is 4800, 8 bit, no parity, 1 stop bit
+$port=Device::SerialPort->new("/dev/ttyUSB0");
+
+$port->baudrate(4800);
+$port->databits(8);
+$port->parity("none");
+$port->stopbits(1);
+
+$port->read_char_time(0);		# don't wait for each character
+$port->read_const_time(1000);		# 1 second per unfulfilled "read" call
+ 
+$chars=0;
+$buffer="";
+while (1) 
+{
+ ($count,$saw)=$port->read(255);	# will read _up to_ 255 chars
+ if($count>0) 
+ {
+  $chars+=$count;
+  $buffer.=$saw;
+
+  # Get the first four bytes 
+  $byte1=substr($saw,0,1);
+  $byte2=substr($saw,1,1);
+  $byte3=substr($saw,2,1);
+  $byte4=substr($saw,3,1);
+
+  # Reverse the bit order on each 8-bit byte, swapping words
+  $byte1r=pack b8 => unpack B8 => $byte3;
+  $byte2r=pack b8 => unpack B8 => $byte4;
+  $byte3r=pack b8 => unpack B8 => $byte1;
+  $byte4r=pack b8 => unpack B8 => $byte2;
+
+  # Convert the reversed bytes into hex strings for printing
+  $byte1hex=uc(unpack('H*',$byte1r));
+  $byte2hex=uc(unpack('H*',$byte2r));
+  $byte3hex=uc(unpack('H*',$byte3r));
+  $byte4hex=uc(unpack('H*',$byte4r));
+
+  $byte1bin=dec2bin(hex($byte1hex));
+  $byte2bin=dec2bin(hex($byte2hex));
+  $byte3bin=dec2bin(hex($byte3hex));
+  $byte4bin=dec2bin(hex($byte4hex));
+
+  $extended_bits=substr($byte1bin,0,3);
+
+#  print "**************************************************************\n";
+#  print "TESTING: $byte1hex $byte2hex $byte3hex $byte4hex (4 of $count read)\n";
+
+  $DATESTAMP=`date '+%D %T'`;chop($DATESTAMP);
+
+  if(! bin2dec($extended_bits)) 
+  { 
+   $extended="NO"; 
+
+   $HouseCode=substr($byte3bin,4,4);
+ 
+   %housecodes=('0110'=>'A','1110'=>'B','0010'=>'C','1010'=>'D','0001'=>'E','1001'=>'F','0101'=>'G','1101'=>'H',
+                '0111'=>'I','1111'=>'J','0011'=>'K','0011'=>'L','0000'=>'M','1000'=>'N','0100'=>'O','1100'=>'P');
+
+   $hcstr=$housecodes{$HouseCode};
+
+   $unitbit1=substr($byte3bin,-6,1);
+   $unitbit2=substr($byte1bin,-2,1);
+   $unitbit3=substr($byte1bin,-5,1);
+   $unitbit4=substr($byte1bin,-4,1);
+ 
+   $unitcodebin=$unitbit1.$unitbit2.$unitbit3.$unitbit4;
+   $unitcode=bin2dec($unitcodebin)+1;
+ 
+   $on_off_bit=substr($byte1bin,-3,1);
+   $dim_bright_bit=substr($byte1bin,-1,1);
+  
+   if(bin2dec($dim_bright_bit))
+   {
+    if(bin2dec(on_off_bit))
+    {
+     $function="DIM";
+    } else {
+            $function="BRIGHT";
+           }
+   } else {
+           if(bin2dec($on_off_bit))
+           {
+            $function="OFF";
+           } else {
+                   $function="ON";
+                  }
+          }
+
+  } else { 
+          $extended="YES"; 
+          $devdec=bin2dec($byte3bin);
+          $msgdec=bin2dec($byte1bin);
+
+          %msgcodes=('00000000'=>'ALERT (max delay)',		# DS10 DS90
+                     '10000000'=>'ALERT (bat low, max)',	# DS10
+                     '00100000'=>'ALERT',			# DS10 DS90 SD90
+                     '10100000'=>'ALERT (battery low)',		# DS10      SD90
+                     '00000001'=>'NORMAL (max delay)',		# DS10 DS90
+                     '10000001'=>'NORMAL (bat low, max)',	# DS10      SD90
+                     '00100001'=>'NORMAL',			# DS10 DS90 SD90
+                     '10100001'=>'NORMAL (battery low)',	# DS10
+                     '00000010'=>'ALERT+Tamper (mac delay)',	#      DS90
+                     '00100010'=>'ALERT+Tamper',		#      DS90
+                     '00000011'=>'NORMAL+Tamper (max delay)',	#      DS90
+                     '00100011'=>'NORMAL+Tamper',		#      DS90
+                     '00110000'=>'ALERT',			#                MS10 MS20 MS90
+                     '00110001'=>'NORMAL',			#                MS10 MS20 MS90
+                     '00000100'=>'Dark Sensor',			#                     MS20
+                     '00110010'=>'ALERT+Tamper',		#                          MS90
+                     '00110011'=>'NORMAL+Tamper',		#                          MS90
+                     '00000100'=>'ARM AWAY (max)',		# SH624
+                     '01000001'=>'DISARM',			# SH624
+                     '01000010'=>'Lights On',			# SH624
+                     '01000011'=>'Lights Off',			# SH624
+                     '01000100'=>'PANIC',			# SH624
+                     '01010000'=>'ARM AWAY (max)',		# SH624
+                     '01100000'=>'ARM AWAY (min)',		# SH624 KR10
+                     '01100001'=>'DISARM',			#       KR10
+                     '01100010'=>'Light On',			#       KR10
+                     '01100011'=>'Light Off',			#       KR10
+                     '01100100'=>'PANIC',			#       KR10
+                     '01110000'=>'ARM HOME (min)',		# SH624
+                     '11000000'=>'PANIC',			# SH624      SD90
+                     '00111000'=>'Temp =< Set',			#                 Digimax
+                     '11010100'=>'Temp > Set',			#                 Digimax
+                     '00000111'=>'MOTION',			#                         DM10
+                     '00001111'=>'DARKNESS DETECTED',		#                         DM10
+                     '00011111'=>'LIGHT DETECTED'		#                         DM10
+                    );
+
+          $msgstr=$msgcodes{$byte1bin};
+
+         }
+
+#  print "EXTENDED: $extended ($extended_bits)\n";
+  if($extended=~/NO/)
+  {
+#   print "HOUSE CODE: $hcstr ($HouseCode) ($byte3bin)\n";
+#   print " UNIT CODE: $unitcode ($unitcodebin)\n";
+#   print "  FUNCTION: $function ($on_off_bit$dim_bright_bit)\n";
+   $line=`grep $hcstr$unitcode bertha.devices`;chop($line);
+   ($unit,$device_description)=split(':',$line);
+   if(length($device_description)<1) { $device_description="Unknown Device"; }
+
+   print "$DATESTAMP $hcstr$unitcode:$device_description:$function\n";
+  } else {
+#          print "DEVICE ADDRESS: $devdec ($byte3bin)\n";
+#          print "  MESSAGE CODE: $msgstr ($msgdec) ($byte1bin)\n";
+          $line=`grep $devdec bertha.devices`;chop($line);
+          ($unit,$device_description)=split(':',$line);
+          if(length($device_description)<1) { $device_description="Unknown Device"; }
+
+          print "$DATESTAMP $devdec:$device_description:$msgstr\n";
+         }
+
+
+
+#  $ActivityString="Unknown Activity";
+
+#  if($hex=~//)
+#  { $ActivityString=""; }
+#  if($hex=~//)
+#  { $ActivityString=""; }
+
+#  if($hex=~/00cef8e0fe00cef8e0fe00cef8e0fe00cef8e0fe00cef8e0fe/)
+#  { $ActivityString="MS3:Motion"; }
+#  if($hex=~/00cef838f800cef838f800cef838f800cef838f800cef838f8/)
+#  { $ActivityString="MS3:Timed-Out"; }
+
+
+#  if($hex=~/00cef8fe00cef8fe00cef8fe00cef8fe00cef8fe/)
+#  { $ActivityString="MS1:Motion"; }
+#  if($hex=~/00cef838fe00cef838fe00cef838fe00cef838fe00cef838fe/)
+#  { $ActivityString="MS1:Timed-Out"; }
+
+#  if($hex=~/00cef8807e00cef8807e00cef8807e00cef8807e00cef8807e/)
+#  { $ActivityString="MS2:Motion"; }
+#  if($hex=~/00cef8867efe00cef8867efe00cef8867efe00cef8867efe00cef8867efe/)
+#  { $ActivityString="MS2:Timed-Out"; }
+
+#  if($hex=~/86fee6609e86fee6609e86fee6609e86fee6609e86fee6609e/)
+#  { $ActivityString="DS1:Opened"; }
+#  if($hex=~/86fee6609efe86fee6609efe86fee6609efe86fee6609efe86fee6609efe/)
+#  { $ActivityString="DS1:Closed"; }
+#  if($hex=~/86fee6609efe86fee6609efe86fee6609efe86fee6609efe86fee6609efe86fee6609e86fee6609e86fee6609e86fee6609e86fee6609e/)
+#  { $ActivityString="DS1:Check-In"; }
+
+#  print "$DATESTAMP $ActivityString\n";
+#  print '     HEX: ';
+#  for (my $i = 0; $i < length $hex; $i+=2) { print substr $hex, $i, 2; }
+#  print "\n";
+#  print '     HEX: ';
+#  for (my $i = 0; $i < length $hex2; $i+=2) { print substr $hex2, $i, 2; }
+#  print "\n";
+
+ }
+}
+
+exit(0);
+
+
+sub dec2bin {
+    my $str = unpack("B32", pack("N", shift));
+#    $str =~ s/^0+(?=\d)//;   # otherwise you'll get leading zeros
+    $str=substr($str,-8,8);
+    return $str;
+}
+
+sub bin2dec {
+    return unpack("N", pack("B32", substr("0" x 32 . shift, -32)));
+}

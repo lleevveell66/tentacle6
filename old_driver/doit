@@ -1,0 +1,2 @@
+./waiter -d /dev/ttyUSB0 -D -c /usr/local/src/raymond/waiter/waiter/x10rf.sh
+
