@@ -3,6 +3,8 @@
 # http://www.wgldesigns.com/protocols/w800rf32_protocol.txt
 # http://www.smarthus.info/support/download/x10_RF_formats.pdf
 
+$logfile="bertha_t6.log";
+
 use IO::Handle;
 use Device::SerialPort qw( :PARAM :STAT 0.07 );
 
@@ -16,6 +18,8 @@ $port->stopbits(1);
 
 $port->read_char_time(0);		# don't wait for each character
 $port->read_const_time(1000);		# 1 second per unfulfilled "read" call
+
+open(LOG,">>$logfile") ||  die("ERROR opening $logfile: $! \n\n");
  
 $chars=0;
 $buffer="";
@@ -153,6 +157,7 @@ while (1)
    if(length($device_description)<1) { $device_description="Unknown Device"; }
 
    print "$DATESTAMP $hcstr$unitcode:$device_description:$function\n";
+   print LOG "$DATESTAMP $hcstr$unitcode:$device_description:$function\n";
   } else {
 #          print "DEVICE ADDRESS: $devdec ($byte3bin)\n";
 #          print "  MESSAGE CODE: $msgstr ($msgdec) ($byte1bin)\n";
@@ -161,6 +166,7 @@ while (1)
           if(length($device_description)<1) { $device_description="Unknown Device"; }
 
           print "$DATESTAMP $devdec:$device_description:$msgstr\n";
+          print LOG "$DATESTAMP $devdec:$device_description:$msgstr\n";
          }
 
 
@@ -205,6 +211,10 @@ while (1)
 
  }
 }
+
+# Will never get here until signaling is added.
+
+close(LOG);
 
 exit(0);
 
