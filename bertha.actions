@@ -1,0 +1,17 @@
+ID:Function:Action
+A1:ON:KitchenOn
+A1:OFF:KitchenOff
+A3:ON:KitchenOn
+A3:OFF:KitchenOff
+A5:ON:LibraryOn
+A5:OFF:LibraryOff
+248:ALERT:FrontDoorOpen
+248:NORMAL:FrontDoorClosed
+252:ALERT:BackDoorOpen
+252:NORMAL:BackDoorClosed
+218:ALERT:MasterDoorOpen
+218:NORMAL:MasterDoorOpen
+149:ALERT:HallwayDoorOpen
+149:NORMAL:HallwayDoorClosed
+155:ALERT:StudioDoorOpen
+155:NORMAL:StudioDoorClosed

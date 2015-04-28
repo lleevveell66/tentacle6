@@ -1,0 +1,5 @@
+#!/bin/sh
+
+./HueLightOn.py -l 9 -i 254
+
+exit 0

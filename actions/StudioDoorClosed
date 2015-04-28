@@ -1,0 +1,5 @@
+#!/bin/sh
+
+./HueLightOff.py -l 9
+
+exit 0
