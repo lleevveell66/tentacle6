@@ -64,7 +64,7 @@ while(1)				# Will daemonize, later.  For now, run forevers!
 
   if(! bin2dec($extended_bits)) 		# If Standard X-10, then...
   {
-   if($DEBUG) { $extended="NO"; }
+   $extended="NO";
 
    # House code is last nibble of byte 3
    $HouseCode=substr($byte3bin,4,4);
@@ -105,7 +105,7 @@ while(1)				# Will daemonize, later.  For now, run forevers!
           }
 
   } else { 					# If Extended X-10, then...
-          if($DEBUG) { $extended="YES"; } 
+          $extended="YES";
           $devdec=bin2dec($byte3bin);		# Device ID is in byte 3
           $msgdec=bin2dec($byte1bin);		# Message Code is in byte 1
 
@@ -147,73 +147,38 @@ while(1)				# Will daemonize, later.  For now, run forevers!
                      '00011111'=>'LIGHT DETECTED'		#                         DM10
                     );
 
+          # Get the keyed Message string
           $msgstr=$msgcodes{$byte1bin};
 
          }
 
-#  print "EXTENDED: $extended ($extended_bits)\n";
+  if($DEBUG) { print "EXTENDED: $extended ($extended_bits)\n"; }
+
   if($extended=~/NO/)
   {
-#   print "HOUSE CODE: $hcstr ($HouseCode) ($byte3bin)\n";
-#   print " UNIT CODE: $unitcode ($unitcodebin)\n";
-#   print "  FUNCTION: $function ($on_off_bit$dim_bright_bit)\n";
+   if($DEBUG)
+   {
+    print "HOUSE CODE: $hcstr ($HouseCode) ($byte3bin)\n";
+    print " UNIT CODE: $unitcode ($unitcodebin)\n";
+    print "  FUNCTION: $function ($on_off_bit$dim_bright_bit)\n";
+   }
    $line=`grep $hcstr$unitcode bertha.devices`;chop($line);
    ($unit,$device_description)=split(':',$line);
    if(length($device_description)<1) { $device_description="Unknown Device"; }
-
    print "$DATESTAMP $hcstr$unitcode:$device_description:$function\n";
    print LOG "$DATESTAMP $hcstr$unitcode:$device_description:$function\n";
   } else {
-#          print "DEVICE ADDRESS: $devdec ($byte3bin)\n";
-#          print "  MESSAGE CODE: $msgstr ($msgdec) ($byte1bin)\n";
+          if($DEBUG)
+          {
+           print "DEVICE ADDRESS: $devdec ($byte3bin)\n";
+           print "  MESSAGE CODE: $msgstr ($msgdec) ($byte1bin)\n";
+          }
           $line=`grep $devdec bertha.devices`;chop($line);
           ($unit,$device_description)=split(':',$line);
           if(length($device_description)<1) { $device_description="Unknown Device"; }
-
           print "$DATESTAMP $devdec:$device_description:$msgstr\n";
           print LOG "$DATESTAMP $devdec:$device_description:$msgstr\n";
          }
-
-
-
-#  $ActivityString="Unknown Activity";
-
-#  if($hex=~//)
-#  { $ActivityString=""; }
-#  if($hex=~//)
-#  { $ActivityString=""; }
-
-#  if($hex=~/00cef8e0fe00cef8e0fe00cef8e0fe00cef8e0fe00cef8e0fe/)
-#  { $ActivityString="MS3:Motion"; }
-#  if($hex=~/00cef838f800cef838f800cef838f800cef838f800cef838f8/)
-#  { $ActivityString="MS3:Timed-Out"; }
-
-
-#  if($hex=~/00cef8fe00cef8fe00cef8fe00cef8fe00cef8fe/)
-#  { $ActivityString="MS1:Motion"; }
-#  if($hex=~/00cef838fe00cef838fe00cef838fe00cef838fe00cef838fe/)
-#  { $ActivityString="MS1:Timed-Out"; }
-
-#  if($hex=~/00cef8807e00cef8807e00cef8807e00cef8807e00cef8807e/)
-#  { $ActivityString="MS2:Motion"; }
-#  if($hex=~/00cef8867efe00cef8867efe00cef8867efe00cef8867efe00cef8867efe/)
-#  { $ActivityString="MS2:Timed-Out"; }
-
-#  if($hex=~/86fee6609e86fee6609e86fee6609e86fee6609e86fee6609e/)
-#  { $ActivityString="DS1:Opened"; }
-#  if($hex=~/86fee6609efe86fee6609efe86fee6609efe86fee6609efe86fee6609efe/)
-#  { $ActivityString="DS1:Closed"; }
-#  if($hex=~/86fee6609efe86fee6609efe86fee6609efe86fee6609efe86fee6609efe86fee6609e86fee6609e86fee6609e86fee6609e86fee6609e/)
-#  { $ActivityString="DS1:Check-In"; }
-
-#  print "$DATESTAMP $ActivityString\n";
-#  print '     HEX: ';
-#  for (my $i = 0; $i < length $hex; $i+=2) { print substr $hex, $i, 2; }
-#  print "\n";
-#  print '     HEX: ';
-#  for (my $i = 0; $i < length $hex2; $i+=2) { print substr $hex2, $i, 2; }
-#  print "\n";
-
  }
 }
 
@@ -223,14 +188,16 @@ close(LOG);
 
 exit(0);
 
+# ------ Subroutines ------
 
-sub dec2bin {
-    my $str = unpack("B32", pack("N", shift));
-#    $str =~ s/^0+(?=\d)//;   # otherwise you'll get leading zeros
-    $str=substr($str,-8,8);
-    return $str;
+sub dec2bin 
+{
+ my $str=unpack("B32",pack("N",shift));
+ $str=substr($str,-8,8);
+ return $str;
 }
 
-sub bin2dec {
-    return unpack("N", pack("B32", substr("0" x 32 . shift, -32)));
+sub bin2dec 
+{
+ return unpack("N",pack("B32",substr("0" x 32 . shift,-32)));
 }
