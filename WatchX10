@@ -162,7 +162,9 @@ while(1)				# Will daemonize, later.  For now, run forevers!
     print " UNIT CODE: $unitcode ($unitcodebin)\n";
     print "  FUNCTION: $function ($on_off_bit$dim_bright_bit)\n";
    }
-   $line=`grep $hcstr$unitcode bertha.devices`;chop($line);
+   $id=$hcstr.$unitcode;
+   $data=$function;
+   $line=`grep $id bertha.devices`;chop($line);
    ($unit,$device_description)=split(':',$line);
    if(length($device_description)<1) { $device_description="Unknown Device"; }
    print "$DATESTAMP $hcstr$unitcode:$device_description:$function\n";
@@ -173,13 +175,26 @@ while(1)				# Will daemonize, later.  For now, run forevers!
            print "DEVICE ADDRESS: $devdec ($byte3bin)\n";
            print "  MESSAGE CODE: $msgstr ($msgdec) ($byte1bin)\n";
           }
-          $line=`grep $devdec bertha.devices`;chop($line);
+          $id=$devdec;
+          $data=$msgstr;
+          $line=`grep $id bertha.devices`;chop($line);
           ($unit,$device_description)=split(':',$line);
           if(length($device_description)<1) { $device_description="Unknown Device"; }
           print "$DATESTAMP $devdec:$device_description:$msgstr\n";
           print LOG "$DATESTAMP $devdec:$device_description:$msgstr\n";
          }
+ 
+  $line=`grep $id bertha.actions|grep $data`;chop($line);
+  ($unit,$function,$action)=split(':',$line);
+  if(!length($action)<1 || !$action=~/NONE/) 
+  {
+   $output=`actions/$action $unit $function`;
+   print "$output\n";
+  }
+
+
  }
+
 }
 
 # Will never get here until signaling is added.

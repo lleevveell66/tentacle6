@@ -18,7 +18,7 @@ LightSaturation=0;
 
 for opt,arg in opts:
  if opt=='--help':
-  print 'HueChange.py -l <light_id> -h <hue> -i <intensity>'
+  print 'HueChange.py -l <light_id> -i <intensity>'
   sys.exit()
  elif opt in ("-l", "--lid"):
   LightId=int(arg)
@@ -40,7 +40,7 @@ print 'Changing light id %s (%s) to ON, intensity of %s ...' % (LightId,LightNam
 
 b.set_light(LightId,'on',True)
 lights[LightId].on=True
-#b.set_light(lights[LightId].name,'bri',LightIntensity)
+b.set_light(lights[LightId].name,'bri',LightIntensity)
 #b.set_light(lights[LightId].name,'hue',LightHue)
 #b.set_light(lights[LightId].name,'sat',LightSaturation)
 
