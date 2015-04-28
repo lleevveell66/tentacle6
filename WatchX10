@@ -1,110 +1,115 @@
 #!/usr/bin/perl
-
+##############################################################
+# Reference:
 # http://www.wgldesigns.com/protocols/w800rf32_protocol.txt
 # http://www.smarthus.info/support/download/x10_RF_formats.pdf
+##############################################################
 
 $logfile="bertha_t6.log";
+$comport="/dev/ttyUSB0";
+$DEBUG=0;
 
-use IO::Handle;
 use Device::SerialPort qw( :PARAM :STAT 0.07 );
 
-# The com port set up is 4800, 8 bit, no parity, 1 stop bit
-$port=Device::SerialPort->new("/dev/ttyUSB0");
-
-$port->baudrate(4800);
-$port->databits(8);
-$port->parity("none");
-$port->stopbits(1);
-
-$port->read_char_time(0);		# don't wait for each character
+# The com port setup is 4800, 8 bit, no parity, 1 stop bit
+$port=Device::SerialPort->new($comport);
+$port->baudrate(4800);			# 4800 bps
+$port->databits(8);			# 8 data bits
+$port->parity("none");			# No parity
+$port->stopbits(1);			# 1 stop bit
+$port->read_char_time(0);		# 0 delay on reading characters
 $port->read_const_time(1000);		# 1 second per unfulfilled "read" call
 
+# Open the log file for writing
 open(LOG,">>$logfile") ||  die("ERROR opening $logfile: $! \n\n");
  
-$chars=0;
-$buffer="";
-while (1) 
+while(1)				# Will daemonize, later.  For now, run forevers!
 {
- ($count,$saw)=$port->read(255);	# will read _up to_ 255 chars
- if($count>0) 
+ ($count,$saw)=$port->read(255);	# Read up to 255 characters (X-10 will repeat the same pattern)
+ if($count>0) 				# Was there data read?
  {
-  $chars+=$count;
-  $buffer.=$saw;
-
-  # Get the first four bytes 
+  # Get the first four bytes (if there are any more, they are bullshit, anyway)
   $byte1=substr($saw,0,1);
   $byte2=substr($saw,1,1);
   $byte3=substr($saw,2,1);
   $byte4=substr($saw,3,1);
 
-  # Reverse the bit order on each 8-bit byte, swapping words
-  $byte1r=pack b8 => unpack B8 => $byte3;
-  $byte2r=pack b8 => unpack B8 => $byte4;
-  $byte3r=pack b8 => unpack B8 => $byte1;
-  $byte4r=pack b8 => unpack B8 => $byte2;
+  # Reverse the bit order on each 8-bit byte, swapping words due to w800rf32 mixing things up
+  $byte1r=pack b8 => unpack B8 => $byte3;	# Swap 3rd byte to 1st, and reverse bits
+  $byte2r=pack b8 => unpack B8 => $byte4;	# Swap 4th byte to 2nd, and reverse bits
+  $byte3r=pack b8 => unpack B8 => $byte1;	# Swap 1st byte to 3rd, and reverse bits
+  $byte4r=pack b8 => unpack B8 => $byte2;	# Swap 2nd byte to 4th, and reverse bits
 
   # Convert the reversed bytes into hex strings for printing
-  $byte1hex=uc(unpack('H*',$byte1r));
-  $byte2hex=uc(unpack('H*',$byte2r));
-  $byte3hex=uc(unpack('H*',$byte3r));
-  $byte4hex=uc(unpack('H*',$byte4r));
+  $byte1hex=uc(unpack('H*',$byte1r));		# Hex string of byte 1
+  $byte2hex=uc(unpack('H*',$byte2r));		# Hex string of byte 2
+  $byte3hex=uc(unpack('H*',$byte3r));		# Hex string of byte 3
+  $byte4hex=uc(unpack('H*',$byte4r));		# Hex string of byte 4
 
-  $byte1bin=dec2bin(hex($byte1hex));
-  $byte2bin=dec2bin(hex($byte2hex));
-  $byte3bin=dec2bin(hex($byte3hex));
-  $byte4bin=dec2bin(hex($byte4hex));
+  $byte1bin=dec2bin(hex($byte1hex));		# Bin string of byte 1
+  $byte2bin=dec2bin(hex($byte2hex));		# Bin string of byte 2
+  $byte3bin=dec2bin(hex($byte3hex));		# Bin string of byte 3
+  $byte4bin=dec2bin(hex($byte4hex));		# Bin string of byte 4
 
-  $extended_bits=substr($byte1bin,0,3);
+  $extended_bits=substr($byte1bin,0,3);		# 000 = Standard X-10, anything else is Extended X-10
 
-#  print "**************************************************************\n";
-#  print "TESTING: $byte1hex $byte2hex $byte3hex $byte4hex (4 of $count read)\n";
+  if($DEBUG)
+  {
+   print "**************************************************************\n";
+   print "TESTING: $byte1hex $byte2hex $byte3hex $byte4hex (4 of $count read)\n";
+  }
 
+  # Build a datetime stamp for the logging
   $DATESTAMP=`date '+%D %T'`;chop($DATESTAMP);
 
-  if(! bin2dec($extended_bits)) 
-  { 
-   $extended="NO"; 
+  if(! bin2dec($extended_bits)) 		# If Standard X-10, then...
+  {
+   if($DEBUG) { $extended="NO"; }
 
+   # House code is last nibble of byte 3
    $HouseCode=substr($byte3bin,4,4);
  
+   # Don't ask me why.  It probably has something to do with dependability over AC lines?
    %housecodes=('0110'=>'A','1110'=>'B','0010'=>'C','1010'=>'D','0001'=>'E','1001'=>'F','0101'=>'G','1101'=>'H',
                 '0111'=>'I','1111'=>'J','0011'=>'K','0011'=>'L','0000'=>'M','1000'=>'N','0100'=>'O','1100'=>'P');
 
-   $hcstr=$housecodes{$HouseCode};
+   $hcstr=$housecodes{$HouseCode};		# Get the keyed house code letter
 
-   $unitbit1=substr($byte3bin,-6,1);
-   $unitbit2=substr($byte1bin,-2,1);
-   $unitbit3=substr($byte1bin,-5,1);
-   $unitbit4=substr($byte1bin,-4,1);
+   $unitbit1=substr($byte3bin,-6,1);		# Unit code bit 1 is in byte 3, bit 5
+   $unitbit2=substr($byte1bin,-2,1);		# Unit code bit 2 is in byte 1, bit 7
+   $unitbit3=substr($byte1bin,-5,1);		# Unit code bit 3 is in byte 1, bit 4
+   $unitbit4=substr($byte1bin,-4,1);		# Unit code bit 4 is in byte 1, bit 5
  
+   # Build unit code strings
    $unitcodebin=$unitbit1.$unitbit2.$unitbit3.$unitbit4;
-   $unitcode=bin2dec($unitcodebin)+1;
+   $unitcode=bin2dec($unitcodebin)+1;		# Unit codes we know are 1 more than reality (they begin at 0)
  
-   $on_off_bit=substr($byte1bin,-3,1);
-   $dim_bright_bit=substr($byte1bin,-1,1);
+   $on_off_bit=substr($byte1bin,-3,1);		# ON or OFF function is bit 6 of byte 1
+   $dim_bright_bit=substr($byte1bin,-1,1);	# DIM or BRIGHT function is bit 8 of byte 1
   
-   if(bin2dec($dim_bright_bit))
+   if(bin2dec($dim_bright_bit))			# If DIM/BRIGHT bit is 1, then ON/OFF bit means DIM or BRIGHT
    {
-    if(bin2dec(on_off_bit))
+    if(bin2dec(on_off_bit))			# If DIM/BRIGHT=1 and ON/OFF=1 then DIM
     {
      $function="DIM";
-    } else {
+    } else {					# If DIM/BRIGHT=1 and ON/OFF=0 then BRIGHT
             $function="BRIGHT";
            }
-   } else {
-           if(bin2dec($on_off_bit))
+   } else {					# If DIM/BRIGHT bit is 0, then ON/OFF bit means ON or OFF
+           if(bin2dec($on_off_bit))		# If DIM/BRIGHT=0 and ON/OFF=1 then OFF
            {
-            $function="OFF";
-           } else {
+            $function="OFF";			
+           } else {				# If DIM/BRIGHT=0 and ON/OFF=0 then ON
                    $function="ON";
                   }
           }
 
-  } else { 
-          $extended="YES"; 
-          $devdec=bin2dec($byte3bin);
-          $msgdec=bin2dec($byte1bin);
+  } else { 					# If Extended X-10, then...
+          if($DEBUG) { $extended="YES"; } 
+          $devdec=bin2dec($byte3bin);		# Device ID is in byte 3
+          $msgdec=bin2dec($byte1bin);		# Message Code is in byte 1
 
+                                                                # ---[ Known Models ]--------------
           %msgcodes=('00000000'=>'ALERT (max delay)',		# DS10 DS90
                      '10000000'=>'ALERT (bat low, max)',	# DS10
                      '00100000'=>'ALERT',			# DS10 DS90 SD90
