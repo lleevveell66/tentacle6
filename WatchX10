@@ -1,5 +1,9 @@
 #!/usr/bin/perl
 ##############################################################
+# BERTHA Tentacle 6 - v.0.0.1
+##############################################################
+# Raymond Spangle  (git@leper.org)
+##############################################################
 # Reference:
 # http://www.wgldesigns.com/protocols/w800rf32_protocol.txt
 # http://www.smarthus.info/support/download/x10_RF_formats.pdf
@@ -15,9 +19,9 @@ use Device::SerialPort qw( :PARAM :STAT 0.07 );
 $port=Device::SerialPort->new($comport);
 $port->baudrate(4800);			# 4800 bps
 $port->databits(8);			# 8 data bits
-$port->parity("none");			# No parity
-$port->stopbits(1);			# 1 stop bit
-$port->read_char_time(0);		# 0 delay on reading characters
+$port->parity("none");			     # No parity
+$port->stopbits(1);			         # 1 stop bit
+$port->read_char_time(0);				# 0 delay on reading characters
 $port->read_const_time(1000);		# 1 second per unfulfilled "read" call
 
 # Open the log file for writing
@@ -188,13 +192,11 @@ while(1)				# Will daemonize, later.  For now, run forevers!
   ($unit,$function,$action)=split(':',$line);
   if(!length($action)<1 || !$action=~/NONE/) 
   {
+   $function.=s/[^a-zA-Z0-9 _-]//g;
    $output=`actions/$action $unit '$function'`;
    if($DEBUG) { print "$output"; }
   }
-
-
  }
-
 }
 
 # Will never get here until signaling is added.
