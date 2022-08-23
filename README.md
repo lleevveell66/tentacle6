@@ -49,6 +49,5 @@ there are others struggling with why the old W800RF32 driver will not properly r
 
 The code is sloppy as shit.  There is VERY little documentation.  `\o/`
 
-Raymond Spangle
-git@leper.org
-
+LEVEL6
+https://github.com/lleevveell66
